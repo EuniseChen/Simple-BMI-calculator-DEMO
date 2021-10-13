@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+  position: relative;
+  height: 100vh;
+  background-image: url(../img/bg.jpg);
+  background-size: cover;
+}
+
+.container .form-container,
+.container .output-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 360px;
+  height: 400px;
+  color: azure;
+  background-color: rgba(117, 125, 117, 0.8);
+}
+
+.container .form-container .form-title,
+.container .output-container .form-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 40px;
+  margin: 30px 0;
+}
+
+.container .form-container .form-text,
+.container .output-container .form-text {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 15px 0;
+}
+
+.container .form-container .value,
+.container .output-container .value {
+  font-size: 16px;
+  width: 100%;
+  padding: 15px 10px;
+  border: 0;
+  outline: none;
+  border-radius: 5px;
+}
+
+.container .form-container .btn,
+.container .output-container .btn {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 26px 23px;
+  padding: 10px 15px;
+  width: 110px;
+  border-radius: 5px;
+  border: 0;
+  -webkit-box-shadow: 0 6px #757D75;
+          box-shadow: 0 6px #757D75;
+}
+
+.container .form-container .btn:hover,
+.container .output-container .btn:hover {
+  background-color: #D2D7D3;
+}
+
+.container .form-container .btn:active,
+.container .output-container .btn:active {
+  background-color: #BDC3C7;
+  -webkit-box-shadow: 0 5px #6C7A89;
+          box-shadow: 0 5px #6C7A89;
+  -webkit-transform: translateY(4px);
+          transform: translateY(4px);
+}
+
+.container .output-container {
+  left: 1320px;
+  background-color: rgba(117, 125, 117, 0.5);
+  color: black;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.container .output-container.fade-in {
+  opacity: 1;
+  height: 400px;
+}
+/*# sourceMappingURL=style.css.map */

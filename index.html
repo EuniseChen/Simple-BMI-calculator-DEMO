@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="form-container">
+      <form>
+        <h2 class="form-title">BMI Calculator</h2>
+        <p class="form-text">Your Height (cm):</p>
+        <input type="text" placeholder="please enter your height" class="value" id="height">
+        <p class="form-text">Your Weight (kg):</p>
+        <input type="text" placeholder="please enter your weight" class="value" id="weight">
+        <input type="submit" value="Calculate" class="btn" id="calc-btn">
+        <input type="reset" value="Clear" class="btn" id="clear-btn">
+      </form>
+    </div>
+    <div class="output-container">
+      <h2 class="form-title">Result</h2>
+      <p class="form-text">Your BMI:</p>
+      <span id="BMI"></span>
+      <p class="form-text">Weight Status:</p>
+      <span id="weight-status"></span>
+      <p class="form-text">Suggestion:</p>
+      <span id="suggestion"></span>
+    </div>
+  </div>
+
+  <script>
+    var btn1 = document.querySelector('#calc-btn')
+    var btn2 = document.querySelector('#clear-btn')
+    var result_container = document.querySelector('.result-container')
+    var BMI = document.querySelector('#BMI')
+    var weightStatus = document.querySelector('#weight-status')
+    var suggestion = document.querySelector('#suggestion')
+    var outputContainer = document.querySelector('.output-container')
+
+
+    btn1.onclick = function (event) {
+      event.preventDefault()
+      var height = document.querySelector('#height').value
+      var weight = document.querySelector('#weight').value
+      outputContainer.classList.add('fade-in')
+      console.log(height);
+
+      if (isNaN(parseFloat(height)) || isNaN(parseFloat(weight))) {
+        BMI.innerHTML = 'N/A'
+        weightStatus.innerHTML = 'N/A'
+        suggestion.innerHTML = 'Please insert your height and weight in numbers.'
+      } else if (height <= 0 || weight <= 0) {
+        BMI.innerHTML = 'N/A';
+        weightStatus.innerHTML = 'N/A'
+        suggestion.innerHTML = 'Your height or weight should more than 0.'
+      } else {
+        var BMI_output = (weight / ((height / 100) ** 2)).toFixed(1)
+        BMI.innerHTML = BMI_output
+
+        if (BMI_output >= 35) {
+          weightStatus.innerHTML = 'You are severely obese.'
+          suggestion.innerHTML = 'You should stay away from junk food.'
+        } else if (BMI_output >= 30) {
+          weightStatus.innerHTML = 'You are obese.'
+          suggestion.innerHTML = 'You should start healthy diet from today.'
+        } else if (BMI_output >= 27) {
+          weightStatus.innerHTML = 'You are slightly obese.'
+          suggestion.innerHTML = 'You should start exercising.'
+        } else if (BMI_output >= 24) {
+          weightStatus.innerHTML = 'You are overweight.'
+          suggestion.innerHTML = 'You should start exercising.'
+        } else if (BMI_output >= 18.5) {
+          weightStatus.innerHTML = 'You are in nomal weight.'
+          suggestion.innerHTML = 'Congratulation! you are in PERFECT shape.'
+        } else {
+          weightStatus.innerHTML = 'You are underweight.'
+          suggestion.innerHTML = 'You should eat more.'
+        }
+      }
+    }
+
+    btn2.onclick = function (event) {
+      event.preventDefault()
+      outputContainer.classList.remove('fade-in')
+      height.value = ''
+      weight.value = ''
+      BMI.innerHTML = ''
+      weightStatus.innerHTML = ''
+      suggestion.innerHTML = ''
+      console.log(height);
+    }
+  </script>
+
+
+
+</body>
+
+</html>
